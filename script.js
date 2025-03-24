@@ -1,58 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Show the welcome popup on page load
-    document.getElementById("welcomePopup").style.display = "block";
+    // Welcome Popup Handling
+    const welcomePopup = document.getElementById("welcomePopup");
+    setTimeout(() => {
+        welcomePopup.style.display = "block";
+    }, 1000);
 
-    // Show or hide guest details based on selection
-    document.getElementById("customerWith").addEventListener("change", function () {
-        let additionalDetails = document.getElementById("additionalDetails");
-        additionalDetails.style.display = (this.value === "Family" || this.value === "Friends") ? "block" : "none";
-    });
-});
-
-function closePopup() {
-    document.getElementById("welcomePopup").style.display = "none";
-}
-
-function displayMessage() {
-    let name = document.getElementById("customerName").value.trim();
-    let email = document.getElementById("customerEmail").value.trim();
-    let aadharFile = document.getElementById("customerAadhar").files.length;
-    let messageElement = document.getElementById("customerMessage");
-
-    // Validate Name
-    if (name === "") {
-        messageElement.textContent = "❌ Please enter your name.";
-        return;
-    }
-
-    // Validate Email
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(email)) {
-        messageElement.textContent = "❌ Please enter a valid email address.";
-        return;
-    }
-
-    // Validate Aadhar Upload
-    if (aadharFile === 0) {
-        messageElement.textContent = "❌ Please upload your Aadhaar card photo.";
-        return;
-    }
-
-    // Personalized Greeting Based on First Letter of Name
-    let firstLetter = name.charAt(0).toUpperCase();
-    let messages = {
-        'A': "Awesome choice visiting us!", 'B': "Beautiful memories await you!", 'C': "Cosmic experiences await!", 
-        'D': "Delightful service guaranteed!", 'E': "Enjoy your time here!", 'F': "Fantastic stay ahead!",
-        'G': "Great hospitality awaits!", 'H': "Have a wonderful time!", 'I': "Incredible moments await!",
-        'J': "Joyful stay assured!", 'K': "Kind service for you!", 'L': "Luxury at its best!",
-        'M': "Magical experience begins!", 'N': "New adventures await!", 'O': "Outstanding service just for you!",
-        'P': "Perfect destination for you!", 'Q': "Quality hospitality here!", 'R': "Relax and enjoy!",
-        'S': "Spectacular moments await!", 'T': "Terrific stay guaranteed!", 'U': "Unforgettable journey ahead!",
-        'V': "Very warm welcome to you!", 'W': "Wonderful days ahead!", 'X': "eXtraordinary experience begins!",
-        'Y': "Your best vacation starts now!", 'Z': "Zen-like relaxation for you!"
+    window.closePopup = function () {
+        welcomePopup.style.display = "none";
     };
 
-    let personalizedMessage = messages[firstLetter] || "Welcome to Cosmic Resort!";
-    messageElement.textContent = `✅ Hello ${name}, ${personalizedMessage}`;
-    messageElement.style.color = "green";
-}
+    // Customer Details Handling
+    document.getElementById("customerWith").addEventListener("change", function () {
+        const additionalDetails = document.getElementById("additionalDetails");
+        if (this.value === "Family" || this.value === "Friends") {
+            additionalDetails.style.display = "block";
+        } else {
+            additionalDetails.style.display = "none";
+        }
+    });
+
+    window.displayMessage = function () {
+        const name = document.getElementById("customerName").value.trim();
+        const email = document.getElementById("customerEmail").value.trim();
+        const aadhar = document.getElementById("customerAadhar").value;
+        const customerWith = document.getElementById("customerWith").value;
+        const messageElement = document.getElementById("customerMessage");
+
+        // Validation
+        if (!name || !email || !aadhar) {
+            messageElement.textContent = "Please fill in all required fields.";
+            messageElement.style.color = "red";
+            return;
+        }
+
+        let firstLetter = name.charAt(0).toUpperCase();
+        let messages = {
+            'A': "Awesome choice visiting us!", 'B': "Best hospitality awaits you!", 'C': "Cosmic vibes are here!",
+            'D': "Delightful experiences await you!", 'E': "Enjoy your stay to the fullest!", 'F': "Fantastic moments await!",
+            'G': "Great choice! Relax and unwind.", 'H': "Have a wonderful time with us!", 'I': "Incredible memories await!",
+            'J': "Joyful moments guaranteed!", 'K': "Kind hospitality just for you!", 'L': "Luxury and comfort combined!",
+            'M': "Magical experiences await you!", 'N': "New adventures at Cosmic Resort!", 'O': "Outstanding service for you!",
+            'P': "Perfect getaway for relaxation!", 'Q': "Quality service and comfort!", 'R': "Relax and rejuvenate with us!",
+            'S': "Spectacular moments await!", 'T': "Tranquility and peace at Cosmic Resort!", 'U': "Unforgettable memories await!",
+            'V': "Vacation like never before!", 'W': "Wonderful experiences ahead!", 'X': "Xtraordinary comfort awaits!",
+            'Y': "Your perfect holiday spot!", 'Z': "Zen-like relaxation and fun!"
+        };
+
+        let message = "Welcome, " + name + "! " + (messages[firstLetter] || "Enjoy your stay at Cosmic Resort!");
+        
+        messageElement.textContent = message;
+        messageElement.style.color = "green";
+    };
+});
