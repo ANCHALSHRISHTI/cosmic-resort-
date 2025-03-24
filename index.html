@@ -15,28 +15,33 @@
     </div>
     
     <!-- Customer Details Section -->
-    <section id="customer-section">
-        <h2>Enter Your Details</h2>
-        <input type="text" id="customerName" placeholder="Enter your name">
-        <input type="text" id="customerPhone" placeholder="Enter your phone number">
-        <input type="email" id="customerEmail" placeholder="Enter your email ID">
-        <input type="text" id="customerAadhar" placeholder="Enter your Aadhar number">
-        
-        <h3>Are you visiting with family, friends, or alone?</h3>
-        <select id="visitType" onchange="toggleFamilyFriendDetails()">
-            <option value="Alone">Alone</option>
-            <option value="Family">Family</option>
-            <option value="Friends">Friends</option>
-        </select>
+    <!-- Customer Details Section -->
+<section id="customer-section">
+    <h2>Enter Your Details</h2>
+    <input type="text" id="customerName" placeholder="Enter your name">
+    <input type="text" id="customerPhone" placeholder="Enter your phone number">
+    <input type="email" id="customerEmail" placeholder="Enter your email ID">
 
-        <div id="familyFriendDetails" style="display: none;">
-            <h3>Enter Details of Your Family/Friends</h3>
-            <textarea id="familyFriendInfo" placeholder="Enter their names, Aadhar numbers, and phone numbers"></textarea>
-        </div>
-        
-        <button onclick="displayMessage()">Submit</button>
-        <p id="customerMessage"></p>
-    </section>
+    <h3>Upload Your Aadhar Photo</h3>
+    <input type="file" id="customerAadharPhoto" accept="image/*" onchange="previewAadharPhoto(event)">
+    <img id="aadharPreview" src="" alt="Aadhar Photo Preview" style="display: none; width: 150px; margin-top: 10px; border-radius: 10px;">
+
+    <h3>Are you visiting with family, friends, or alone?</h3>
+    <select id="visitType" onchange="toggleFamilyFriendDetails()">
+        <option value="Alone">Alone</option>
+        <option value="Family">Family</option>
+        <option value="Friends">Friends</option>
+    </select>
+
+    <div id="familyFriendDetails" style="display: none;">
+        <h3>Enter Details of Your Family/Friends</h3>
+        <textarea id="familyFriendInfo" placeholder="Enter their names and phone numbers"></textarea>
+    </div>
+
+    <button onclick="displayMessage()">Submit</button>
+    <p id="customerMessage"></p>
+</section>
+
 
     <!-- Resort Contact Information -->
     <section id="resort-info">
