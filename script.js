@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     // Show the welcome popup on page load
     document.getElementById("welcomePopup").style.display = "block";
@@ -6,11 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show or hide guest details based on selection
     document.getElementById("customerWith").addEventListener("change", function () {
         let additionalDetails = document.getElementById("additionalDetails");
-        if (this.value === "Family" || this.value === "Friends") {
-            additionalDetails.style.display = "block";
-        } else {
-            additionalDetails.style.display = "none";
-        }
+        additionalDetails.style.display = (this.value === "Family" || this.value === "Friends") ? "block" : "none";
     });
 });
 
@@ -60,5 +55,4 @@ function displayMessage() {
     let personalizedMessage = messages[firstLetter] || "Welcome to Cosmic Resort!";
     messageElement.textContent = `✅ Hello ${name}, ${personalizedMessage}`;
     messageElement.style.color = "green";
-    
-}                                                      
+}
