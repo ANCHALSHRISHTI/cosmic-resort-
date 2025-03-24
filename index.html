@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Restaurant & Resort</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Welcome Popup -->
+    <div id="welcomePopup" class="popup">
+        <p>Welcome to Cosmic Restaurant & Resort! 🌟</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    
+    <!-- Customer Details Section -->
+    <section id="customer-section">
+        <h2>Enter Your Details</h2>
+        <input type="text" id="customerName" placeholder="Enter your name">
+        <input type="text" id="customerPhone" placeholder="Enter your phone number">
+        <input type="email" id="customerEmail" placeholder="Enter your email ID">
+        <input type="text" id="customerAadhar" placeholder="Enter your Aadhar number">
+        
+        <h3>Are you visiting with family, friends, or alone?</h3>
+        <select id="visitType" onchange="toggleFamilyFriendDetails()">
+            <option value="Alone">Alone</option>
+            <option value="Family">Family</option>
+            <option value="Friends">Friends</option>
+        </select>
 
+        <div id="familyFriendDetails" style="display: none;">
+            <h3>Enter Details of Your Family/Friends</h3>
+            <textarea id="familyFriendInfo" placeholder="Enter their names, Aadhar numbers, and phone numbers"></textarea>
+        </div>
+        
+        <button onclick="displayMessage()">Submit</button>
+        <p id="customerMessage"></p>
+    </section>
+
+    <!-- Resort Contact Information -->
+    <section id="resort-info">
+        <h2>Resort Contact Information</h2>
+        <p><strong>Phone:</strong> +91-9876543210</p>
+        <p><strong>Email:</strong> contact@cosmicresort.com</p>
+        <p><strong>Address:</strong> 123 Cosmic Street, Galaxy City, India</p>
+        <h3>Facilities Available</h3>
+        <ul>
+            <li>Spa & Massage</li>
+            <li>Swimming Pool</li>
+            <li>Garden Area</li>
+            <li>Luxury Dining</li>
+        </ul>
+        <h3>Room Details & Cost</h3>
+        <ul>
+            <li><strong>Deluxe AC Room:</strong> ₹5000 per night (King-size bed, sea view, minibar, smart TV)</li>
+            <li><strong>Standard AC Room:</strong> ₹4000 per night (Queen-size bed, city view, TV, WiFi)</li>
+            <li><strong>Non-AC Room:</strong> ₹3000 per night (Double bed, fan, TV, attached bathroom)</li>
+            <li><strong>Luxury Suite:</strong> ₹8000 per night (Spacious, private balcony, jacuzzi, premium amenities)</li>
+            <li><strong>Family Room:</strong> ₹6000 per night (Two king-size beds, kids' play area, large balcony)</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Thank you for visiting Cosmic Restaurant & Resort!</p>
+    </footer>
+</body>
+</html>
