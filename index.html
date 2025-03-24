@@ -14,59 +14,100 @@
         <button onclick="closePopup()">Close</button>
     </div>
     
-    <!-- Customer Details Section -->
-    <!-- Customer Details Section -->
-<section id="customer-section">
-    <h2>Enter Your Details</h2>
-    <input type="text" id="customerName" placeholder="Enter your name">
-    <input type="text" id="customerPhone" placeholder="Enter your phone number">
-    <input type="email" id="customerEmail" placeholder="Enter your email ID">
-
-    <h3>Upload Your Aadhar Photo</h3>
-    <input type="file" id="customerAadharPhoto" accept="image/*" onchange="previewAadharPhoto(event)">
-    <img id="aadharPreview" src="" alt="Aadhar Photo Preview" style="display: none; width: 150px; margin-top: 10px; border-radius: 10px;">
-
-    <h3>Are you visiting with family, friends, or alone?</h3>
-    <select id="visitType" onchange="toggleFamilyFriendDetails()">
-        <option value="Alone">Alone</option>
-        <option value="Family">Family</option>
-        <option value="Friends">Friends</option>
-    </select>
-
-    <div id="familyFriendDetails" style="display: none;">
-        <h3>Enter Details of Your Family/Friends</h3>
-        <textarea id="familyFriendInfo" placeholder="Enter their names and phone numbers"></textarea>
-    </div>
-
-    <button onclick="displayMessage()">Submit</button>
-    <p id="customerMessage"></p>
-</section>
-
-
-    <!-- Resort Contact Information -->
-    <section id="resort-info">
-        <h2>Resort Contact Information</h2>
-        <p><strong>Phone:</strong> +91-708066251</p>
-        <p><strong>Email:</strong> contact@cosmicresort.com</p>
-        <p><strong>Address:</strong> 123 Cosmic Street, Galaxy City, India</p>
-        <h3>Facilities Available</h3>
-        <ul>
-            <li>Spa & Massage</li>
-            <li>Swimming Pool</li>
-            <li>Garden Area</li>
-            <li>Luxury Dining</li>
-        </ul>
-        <h3>Room Details & Cost</h3>
-        <ul>
-            <li><strong>Deluxe AC Room:</strong> ₹5000 per night (King-size bed, sea view, minibar, smart TV)</li>
-            <li><strong>Standard AC Room:</strong> ₹4000 per night (Queen-size bed, city view, TV, WiFi)</li>
-            <li><strong>Non-AC Room:</strong> ₹3000 per night (Double bed, fan, TV, attached bathroom)</li>
-            <li><strong>Luxury Suite:</strong> ₹8000 per night (Spacious, private balcony, jacuzzi, premium amenities)</li>
-            <li><strong>Family Room:</strong> ₹6000 per night (Two king-size beds, kids' play area, large balcony)</li>
-        </ul>
+     <!-- Customer Details Section -->
+    <section id="customer-section">
+        <h2>Enter Your Details</h2>
+        <label for="customerName">Name:</label>
+        <input type="text" id="customerName" placeholder="Enter your name">
+        
+        <label for="customerEmail">Email:</label>
+        <input type="email" id="customerEmail" placeholder="Enter your email">
+        
+        <label for="customerAadhar">Aadhar Card Photo:</label>
+        <input type="file" id="customerAadhar" accept="image/*">
+        
+        <label for="customerWith">Are you with family or friends?</label>
+        <select id="customerWith">
+            <option value="Alone">Alone</option>
+            <option value="Family">Family</option>
+            <option value="Friends">Friends</option>
+        </select>
+        
+        <div id="additionalDetails" style="display: none;">
+            <h3>Additional Guest Details</h3>
+            <label for="guestName">Guest Name:</label>
+            <input type="text" id="guestName" placeholder="Enter guest's name">
+            
+            <label for="guestPhone">Guest Phone Number:</label>
+            <input type="tel" id="guestPhone" placeholder="Enter guest's phone number">
+            
+            <label for="guestAadhar">Guest Aadhar Card Photo:</label>
+            <input type="file" id="guestAadhar" accept="image/*">
+        </div>
+        
+        <button onclick="displayMessage()">Submit</button>
+        <p id="customerMessage"></p>
     </section>
 
-  <!-- Image Gallery Section -->
+    <!-- Resort Information Section -->
+    <section id="resort-info">
+        <h2>About Cosmic Resort</h2>
+        <p>Cosmic Resort is a luxury retreat offering a perfect blend of comfort and elegance. Enjoy world-class hospitality, exquisite dining, and top-notch amenities.</p>
+        <ul>
+            <li>🌴 Lush Gardens</li>
+            <li>🏊 Swimming Pool</li>
+            <li>💆 Spa & Massage Services</li>
+            <li>🍽️ Multi-Cuisine Restaurant</li>
+            <li>🎶 Live Music & Entertainment</li>
+            <li>🚗 Free Parking</li>
+        </ul>
+        <h3>Resort Details</h3>
+        <p><strong>Resort ID:</strong> CR12345</p>
+        <p><strong>Phone Number:</strong> xxxxxxxxx</p>
+        <p><strong>E-mail Id:</strong> +cosmic@gamil.com</p>
+        <p><strong>Address:</strong> 123 Cosmic Street, Galaxy City, Universe</p>
+    </section>
+
+    <!-- Room Details Section -->
+    <section id="room-details">
+        <h2>Room Details & Pricing</h2>
+        <table>
+            <tr>
+                <th>Room Type</th>
+                <th>AC/Non-AC</th>
+                <th>Price per Night</th>
+                <th>Services Available</th>
+            </tr>
+            <tr>
+                <td>Deluxe Room</td>
+                <td>AC</td>
+                <td>$120</td>
+                <td>Wi-Fi, TV, Mini-Bar, Room Service</td>
+            </tr>
+            <tr>
+                <td>Executive Suite</td>
+                <td>AC</td>
+                <td>$180</td>
+                <td>Private Balcony, Jacuzzi, Butler Service</td>
+            </tr>
+            <tr>
+                <td>Standard Room</td>
+                <td>Non-AC</td>
+                <td>$80</td>
+                <td>Wi-Fi, TV, Room Service</td>
+            </tr>
+            <tr>
+                <td>Family Suite</td>
+                <td>AC</td>
+                <td>$220</td>
+                <td>Kitchenette, Living Area, Multiple Beds</td>
+            </tr>
+        </table>
+    </section>
+    
+    
+
+    <!-- Image Gallery Section -->
     <section class="image-gallery">
         <h2>Explore Our Cosmic Resort</h2>
         <div class="gallery">
@@ -149,4 +190,4 @@
         <p>Thank you for visiting Cosmic Restaurant & Resort!</p>
     </footer>
 </body>
-</html>
+</html> 
