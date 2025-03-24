@@ -1,7 +1,6 @@
 // Show Welcome Popup on Load
 document.addEventListener("DOMContentLoaded", function () {
-    const welcomePopup = document.getElementById("welcomePopup");
-    welcomePopup.style.display = "block";
+    document.getElementById("welcomePopup").style.display = "block";
 });
 
 // Close Welcome Popup
@@ -14,11 +13,7 @@ function toggleFamilyFriendDetails() {
     const visitType = document.getElementById("visitType").value;
     const familyFriendDetails = document.getElementById("familyFriendDetails");
 
-    if (visitType === "Family" || visitType === "Friends") {
-        familyFriendDetails.style.display = "block";
-    } else {
-        familyFriendDetails.style.display = "none";
-    }
+    familyFriendDetails.style.display = (visitType === "Family" || visitType === "Friends") ? "block" : "none";
 }
 
 // Display Personalized Customer Message
@@ -31,6 +26,19 @@ function displayMessage() {
         message.innerHTML = `Hello <b>${name}</b>, it's great to have you here! Your name starts with <b>${firstLetter}</b>. Welcome to Cosmic Restaurant & Resort!`;
     } else {
         message.innerHTML = "Please enter your name to receive a personalized message.";
+    }
+}
+
+// Handle Aadhar Photo Upload
+function previewAadharPhoto(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("aadharPreview").src = e.target.result;
+            document.getElementById("aadharPreview").style.display = "block";
+        };
+        reader.readAsDataURL(file);
     }
 }
 
@@ -48,7 +56,10 @@ function makeGalleryResponsive() {
                 img.style.minWidth = "80%";
                 img.style.margin = "5px";
                 img.style.scrollSnapAlign = "center";
+                img.style.borderRadius = "10px";
+                img.style.transition = "transform 0.3s ease-in-out";
             });
+
         } else {
             gallery.style.display = "flex";
             gallery.style.flexWrap = "wrap";
