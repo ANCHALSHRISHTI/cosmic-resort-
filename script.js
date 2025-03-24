@@ -1,4 +1,5 @@
-"DOMContentLoaded", function () {
+
+document.addEventListener("DOMContentLoaded", function () {
     // Show the welcome popup on page load
     document.getElementById("welcomePopup").style.display = "block";
 
