@@ -57,6 +57,7 @@ function displayMessage() {
     };
 
     let personalizedMessage = messages[firstLetter] || "Welcome to Cosmic Resort!";
-    messageElement.textContent = ✅ Hello ${name}, ${personalizedMessage};
+    messageElement.textContent = `✅ Hello ${name}, ${personalizedMessage}`;
     messageElement.style.color = "green";
+    
 }                                                      
