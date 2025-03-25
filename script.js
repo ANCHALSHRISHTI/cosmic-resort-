@@ -21,17 +21,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.displayMessage = function () {
         const name = document.getElementById("customerName").value.trim();
-        const phone = document.getElementById("customerPhone").value.trim();
         const email = document.getElementById("customerEmail").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
         const aadhar = document.getElementById("customerAadhar").value;
         const customerWith = document.getElementById("customerWith").value;
         const messageElement = document.getElementById("customerMessage");
 
-        // Validation
-        if (!name || !phone || !email || !aadhar) {
-            messageElement.textContent = "Please fill in all required fields.";
+        // Additional Guest Fields
+        const guestName = document.getElementById("guestName").value.trim();
+        const guestPhone = document.getElementById("guestPhone").value.trim();
+        const guestAadhar = document.getElementById("guestAadhar").value;
+
+        // Validation for Customer
+        if (!name || !email || !phone || !aadhar) {
+            messageElement.textContent = "Please fill in all required customer details.";
             messageElement.style.color = "red";
             return;
+        }
+
+        // Validation for Additional Guests (If selected)
+        if (customerWith === "Family" || customerWith === "Friends") {
+            if (!guestName || !guestPhone || !guestAadhar) {
+                messageElement.textContent = "Please fill in all guest details before submitting.";
+                messageElement.style.color = "red";
+                return;
+            }
         }
 
         let firstLetter = name.charAt(0).toUpperCase();
