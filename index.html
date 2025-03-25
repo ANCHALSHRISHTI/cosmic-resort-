@@ -8,6 +8,7 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+
     <!-- Welcome Popup -->
     <div id="welcomePopup" class="popup">
         <p>Welcome to Cosmic Restaurant & Resort! 🌟</p>
@@ -17,37 +18,7 @@
     <!-- Customer Details Section -->
     <section id="customer-section">
         <h2>Enter Your Details</h2>
-        <label for="customerName">Name:</label>
-        <input type="text" id="customerName" placeholder="Enter your name">
-        
-        <label for="customerEmail">Email:</label>
-        <input type="email" id="customerEmail" placeholder="Enter your email">
-        
-        <label for="customerPhone">Phone Number:</label>
-        <input type="tel" id="customerPhone" placeholder="Enter your phone number">
-        
-        <label for="customerAadhar">Aadhar Card Photo:</label>
-        <input type="file" id="customerAadhar" accept="image/*">
-        
-        <label for="customerWith">Are you with family or friends?</label>
-        <select id="customerWith">
-            <option value="Alone">Alone</option>
-            <option value="Family">Family</option>
-            <option value="Friends">Friends</option>
-        </select>
-        
-        <div id="additionalDetails" style="display: none;">
-            <h3>Additional Guest Details</h3>
-            <label for="guestName">Guest Name:</label>
-            <input type="text" id="guestName" placeholder="Enter guest's name">
-            
-            <label for="guestPhone">Guest Phone Number:</label>
-            <input type="tel" id="guestPhone" placeholder="Enter guest's phone number">
-            
-            <label for="guestAadhar">Guest Aadhar Card Photo:</label>
-            <input type="file" id="guestAadhar" accept="image/*">
-        </div>
-        <!-- **✅ Form Added** -->
+
         <form id="myForm">
             <label for="customerName">Name:</label>
             <input type="text" id="customerName" placeholder="Enter your name">
@@ -80,14 +51,9 @@
                 <input type="file" id="guestAadhar" accept="image/*">
             </div>
             
-            <!-- ✅ **Submit Button ID Added** -->
-            <button id="submitButton">Submit</button>
+            <button type="submit" id="submitButton">Submit</button>
             <p id="customerMessage"></p>
         </form>
-    </section>
-        
-        <button onclick="displayMessage()">Submit</button>
-        <p id="customerMessage"></p>
     </section>
 
     <!-- Resort Information Section -->
