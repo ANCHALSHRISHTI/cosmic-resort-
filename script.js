@@ -19,40 +19,44 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // ✅ **Submit Button Event Listener Added**
     document.getElementById("submitButton").addEventListener("click", function (event) {
         event.preventDefault(); // **Form ko submit hone se rokna jab tak validation pass na ho**
         
         const name = document.getElementById("customerName").value.trim();
         const phone = document.getElementById("customerPhone").value.trim();
         const email = document.getElementById("customerEmail").value.trim();
-        const aadhar = document.getElementById("customerAadhar").value.trim();
+        const aadhar = document.getElementById("customerAadhar").files.length; // ✅ Fixed
+        
         const customerWith = document.getElementById("customerWith").value;
         const messageElement = document.getElementById("customerMessage");
 
         // Guest Details Fields
         const guestName = document.getElementById("guestName") ? document.getElementById("guestName").value.trim() : "";
         const guestPhone = document.getElementById("guestPhone") ? document.getElementById("guestPhone").value.trim() : "";
-        const guestAadhar = document.getElementById("guestAadhar") ? document.getElementById("guestAadhar").value.trim() : "";
+        const guestAadhar = document.getElementById("guestAadhar") ? document.getElementById("guestAadhar").files.length : 0; // ✅ Fixed
 
-        // Validation for Customer
-        if (!name || !phone || !email || !aadhar) {
+        // **Validation for Customer**
+        if (!name || !phone || !email || aadhar === 0) {
             messageElement.textContent = "Please fill in all required customer details.";
             messageElement.style.color = "red";
             return;
         }
 
-        // Validation for Additional Guests (If selected)
+        // **Validation for Additional Guests (If selected)**
         if (customerWith === "Family" || customerWith === "Friends") {
-            if (!guestName || !guestPhone || !guestAadhar) {
+            if (!guestName || !guestPhone || guestAadhar === 0) {
                 messageElement.textContent = "Please fill in all guest details before submitting.";
                 messageElement.style.color = "red";
                 return;
             }
         }
 
-        // If everything is valid, allow form submission
+        // ✅ **Form Submitted Successfully**
         messageElement.textContent = "Form submitted successfully!";
         messageElement.style.color = "green";
-        document.getElementById("myForm").submit(); // **Yeh form ko submit karega agar sab kuch valid hai**
+
+        // **Form Submit Code**
+        document.getElementById("myForm").submit(); 
     });
 });
