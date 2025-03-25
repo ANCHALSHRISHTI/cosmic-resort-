@@ -21,13 +21,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.displayMessage = function () {
         const name = document.getElementById("customerName").value.trim();
-        const phone = document.getElementById("customerPhone").value.trim(); // Customer phone number
+        const phone = document.getElementById("customerPhone").value.trim();
         const email = document.getElementById("customerEmail").value.trim();
-        const aadhar = document.getElementById("customerAadhar").value;
+        const aadhar = document.getElementById("customerAadhar").value.trim();
         const customerWith = document.getElementById("customerWith").value;
         const messageElement = document.getElementById("customerMessage");
 
-        // Validation
+        let additionalGuestName = "";
+        let additionalGuestPhone = "";
+
+        // If "Family" or "Friends" is selected, get additional guest details
+        if (customerWith === "Family" || customerWith === "Friends") {
+            additionalGuestName = document.getElementById("additionalGuestName").value.trim();
+            additionalGuestPhone = document.getElementById("additionalGuestPhone").value.trim();
+
+            // Ensure additional guest details are filled
+            if (!additionalGuestName || !additionalGuestPhone) {
+                messageElement.textContent = "Please enter the additional guest details.";
+                messageElement.style.color = "red";
+                return;
+            }
+
+            // Validate additional guest phone number (10-digit format)
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(additionalGuestPhone)) {
+                messageElement.textContent = "Please enter a valid 10-digit phone number for the additional guest.";
+                messageElement.style.color = "red";
+                return;
+            }
+        }
+
+        // Validation for main customer details
         if (!name || !phone || !email || !aadhar) {
             messageElement.textContent = "Please fill in all required fields.";
             messageElement.style.color = "red";
@@ -56,7 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         let message = "Welcome, " + name + "! " + (messages[firstLetter] || "Enjoy your stay at Cosmic Resort!");
-        
+
+        if (customerWith === "Family" || customerWith === "Friends") {
+            message += ` You are accompanied by ${additionalGuestName}.`;
+        }
+
         messageElement.textContent = message;
         messageElement.style.color = "green";
     };
