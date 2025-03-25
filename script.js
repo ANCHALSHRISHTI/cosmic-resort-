@@ -21,13 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.displayMessage = function () {
         const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
         const email = document.getElementById("customerEmail").value.trim();
         const aadhar = document.getElementById("customerAadhar").value;
         const customerWith = document.getElementById("customerWith").value;
         const messageElement = document.getElementById("customerMessage");
 
         // Validation
-        if (!name || !email || !aadhar) {
+        if (!name || !phone || !email || !aadhar) {
             messageElement.textContent = "Please fill in all required fields.";
             messageElement.style.color = "red";
             return;
