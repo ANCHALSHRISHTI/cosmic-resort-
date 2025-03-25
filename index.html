@@ -51,6 +51,28 @@
         <button onclick="displayMessage()">Submit</button>
         <p id="customerMessage"></p>
     </section>
+    <form id="myForm">
+    <input type="text" id="customerName" placeholder="Your Name" required>
+    <input type="text" id="customerPhone" placeholder="Your Phone" required>
+    <input type="email" id="customerEmail" placeholder="Your Email" required>
+    <input type="text" id="customerAadhar" placeholder="Your Aadhar" required>
+    
+    <select id="customerWith">
+        <option value="Alone">Alone</option>
+        <option value="Family">Family</option>
+        <option value="Friends">Friends</option>
+    </select>
+
+    <div id="additionalDetails" style="display: none;">
+        <input type="text" id="guestName" placeholder="Guest Name">
+        <input type="text" id="guestPhone" placeholder="Guest Phone">
+        <input type="text" id="guestAadhar" placeholder="Guest Aadhar">
+    </div>
+
+    <p id="customerMessage"></p>
+    
+    <button type="button" id="submitButton">Submit</button>
+</form>
 
     <!-- Resort Information Section -->
     <section id="resort-info">
