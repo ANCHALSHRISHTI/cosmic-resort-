@@ -21,19 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.displayMessage = function () {
         const name = document.getElementById("customerName").value.trim();
-        const email = document.getElementById("customerEmail").value.trim();
         const phone = document.getElementById("customerPhone").value.trim();
-        const aadhar = document.getElementById("customerAadhar").value;
+        const email = document.getElementById("customerEmail").value.trim();
+        const aadhar = document.getElementById("customerAadhar").value.trim();
         const customerWith = document.getElementById("customerWith").value;
         const messageElement = document.getElementById("customerMessage");
 
-        // Additional Guest Fields
-        const guestName = document.getElementById("guestName").value.trim();
-        const guestPhone = document.getElementById("guestPhone").value.trim();
-        const guestAadhar = document.getElementById("guestAadhar").value;
+        // Guest Details Fields
+        const guestName = document.getElementById("guestName") ? document.getElementById("guestName").value.trim() : "";
+        const guestPhone = document.getElementById("guestPhone") ? document.getElementById("guestPhone").value.trim() : "";
+        const guestAadhar = document.getElementById("guestAadhar") ? document.getElementById("guestAadhar").value.trim() : "";
 
         // Validation for Customer
-        if (!name || !email || !phone || !aadhar) {
+        if (!name || !phone || !email || !aadhar) {
             messageElement.textContent = "Please fill in all required customer details.";
             messageElement.style.color = "red";
             return;
