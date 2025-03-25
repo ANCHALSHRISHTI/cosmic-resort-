@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             messageElement.textContent = message;
-            messageElement.style.color = "blue";
+            messageElement.style.color = "green";
         } else {
             messageElement.textContent = ""; // Clear message if name field is empty
         }
