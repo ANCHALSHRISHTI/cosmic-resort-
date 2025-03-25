@@ -8,6 +8,7 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+
     <!-- Welcome Popup -->
     <div id="welcomePopup" class="popup">
         <p>Welcome to Cosmic Restaurant & Resort! 🌟</p>
@@ -17,62 +18,45 @@
     <!-- Customer Details Section -->
     <section id="customer-section">
         <h2>Enter Your Details</h2>
-        <label for="customerName">Name:</label>
-        <input type="text" id="customerName" placeholder="Enter your name">
-        
-        <label for="customerEmail">Email:</label>
-        <input type="email" id="customerEmail" placeholder="Enter your email">
-        
-        <label for="customerPhone">Phone Number:</label>
-        <input type="tel" id="customerPhone" placeholder="Enter your phone number">
-        
-        <label for="customerAadhar">Aadhar Card Photo:</label>
-        <input type="file" id="customerAadhar" accept="image/*">
-        
-        <label for="customerWith">Are you with family or friends?</label>
-        <select id="customerWith">
-            <option value="Alone">Alone</option>
-            <option value="Family">Family</option>
-            <option value="Friends">Friends</option>
-        </select>
-        
-        <div id="additionalDetails" style="display: none;">
-            <h3>Additional Guest Details</h3>
-            <label for="guestName">Guest Name:</label>
-            <input type="text" id="guestName" placeholder="Enter guest's name">
+        <form id="myForm">
+            <label for="customerName">Name:</label>
+            <input type="text" id="customerName" name="customerName" placeholder="Enter your name" required>
             
-            <label for="guestPhone">Guest Phone Number:</label>
-            <input type="tel" id="guestPhone" placeholder="Enter guest's phone number">
+            <label for="customerEmail">Email:</label>
+            <input type="email" id="customerEmail" name="customerEmail" placeholder="Enter your email" required>
             
-            <label for="guestAadhar">Guest Aadhar Card Photo:</label>
-            <input type="file" id="guestAadhar" accept="image/*">
-        </div>
-        
-        <button onclick="displayMessage()">Submit</button>
-        <p id="customerMessage"></p>
+            <label for="customerPhone">Phone Number:</label>
+            <input type="tel" id="customerPhone" name="customerPhone" placeholder="Enter your phone number" required>
+            
+            <label for="customerAadhar">Aadhar Card Photo:</label>
+            <input type="file" id="customerAadhar" name="customerAadhar" accept="image/*" required>
+            
+            <label for="customerWith">Are you with family or friends?</label>
+            <select id="customerWith" name="customerWith">
+                <option value="Alone">Alone</option>
+                <option value="Family">Family</option>
+                <option value="Friends">Friends</option>
+            </select>
+            
+            <div id="additionalDetails" style="display: none;">
+                <h3>Additional Guest Details</h3>
+                <label for="guestName">Guest Name:</label>
+                <input type="text" id="guestName" name="guestName" placeholder="Enter guest's name">
+                
+                <label for="guestPhone">Guest Phone Number:</label>
+                <input type="tel" id="guestPhone" name="guestPhone" placeholder="Enter guest's phone number">
+                
+                <label for="guestAadhar">Guest Aadhar Card Photo:</label>
+                <input type="file" id="guestAadhar" name="guestAadhar" accept="image/*">
+            </div>
+            
+            <p id="customerMessage"></p>
+            
+            <button type="button" id="submitButton">Submit</button>
+        </form>
     </section>
-    <form id="myForm">
-    <input type="text" id="customerName" placeholder="Your Name" required>
-    <input type="text" id="customerPhone" placeholder="Your Phone" required>
-    <input type="email" id="customerEmail" placeholder="Your Email" required>
-    <input type="text" id="customerAadhar" placeholder="Your Aadhar" required>
-    
-    <select id="customerWith">
-        <option value="Alone">Alone</option>
-        <option value="Family">Family</option>
-        <option value="Friends">Friends</option>
-    </select>
-
-    <div id="additionalDetails" style="display: none;">
-        <input type="text" id="guestName" placeholder="Guest Name">
-        <input type="text" id="guestPhone" placeholder="Guest Phone">
-        <input type="text" id="guestAadhar" placeholder="Guest Aadhar">
-    </div>
-
-    <p id="customerMessage"></p>
-    
-    <button type="button" id="submitButton">Submit</button>
-</form>
+           
+       
 
     <!-- Resort Information Section -->
     <section id="resort-info">
